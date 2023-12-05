@@ -1,0 +1,5 @@
+- hosts: localhost
+  become: true
+  roles: #nome da pasta
+    - nginx
+    - mysql

@@ -1,0 +1,27 @@
+IP's
+Master: 192.168.15.75
+slaves: 192.168.15.76/77/78
+
+- vagrant up
+
+- ssh vagrant@ip
+
+- Instalar Ansible
+sudo apt update
+sudo apt install ansible
+
+- Criar arquivo de inventário e cadastrar servidores
+mkdir ansible
+vim inventario.txt
+cat inventario.txt
+
+- validar conexões pelo ansible
+ansible -i inventario.txt all -m ping
+
+- Instalar/gerenciar servidores remotos
+ansible -i inventario web -b -m apt -a "name=nginx"
+ansible -i inventario all -b -m apt -a "name=net-tools"
+ansible -i inventario db -b -m apt -a "name=mysql-server"
+ansible -i inventario db -b -m apt -a "name=telnet"
+ansible -i inventario all -b -m user -a "name=seu_nome"
+ansible -i inventario all -b -m apt -a "name=felipe shell=/bin/bash"

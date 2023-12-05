@@ -1,0 +1,3 @@
+- name: Install mysql-server #apt install nginx
+  apt:
+    name: mysql-server
