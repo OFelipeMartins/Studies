@@ -1,0 +1,6 @@
+# Atualizando a vm
+sudo apt update
+
+# Instalar servidor Nginx
+sudo at install nginx
+

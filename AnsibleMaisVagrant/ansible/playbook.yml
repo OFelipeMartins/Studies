@@ -1,5 +1,7 @@
+# Acessa minha máquina local e executa a instalação com permissão de root
+
 - hosts: localhost
-  become: true
+  become: true # Escalona como usuário root
   roles: #nome da pasta
     - nginx
     - mysql

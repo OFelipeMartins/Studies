@@ -1,5 +1,5 @@
----
-- name: Update cache #apt update
+--- # Indica para o S.O. que se trata de arquivo Yml
+- name: Update cache # "Update cache" é apenas descritivo, apt update
   apt:
     update_cache: yes
 
