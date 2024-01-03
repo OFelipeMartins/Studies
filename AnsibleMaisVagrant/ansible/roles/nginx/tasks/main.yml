@@ -3,10 +3,12 @@
   apt:
     update_cache: yes
 
-- name: Install nginx #apt install nginx
+# Intalando o Nginx com módulo apt
+- name: Install nginx 
   apt:
     name: nginx
 
+# Adicionando um arquivo html de um site
 - name: copy index.html
   copy:  
     src: site.html

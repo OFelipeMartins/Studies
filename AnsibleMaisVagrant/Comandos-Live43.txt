@@ -4,3 +4,12 @@ sudo apt update
 # Instalar servidor Nginx
 sudo at install nginx
 
+# Comando mysql
+    # Verifica status do mysql
+    sudo service mysql status
+    # Acessa o mysql   
+    sudo su mysql -u root
+    # Mostra as tabelas
+    show databases;
+    use mysql
+    show tables;
