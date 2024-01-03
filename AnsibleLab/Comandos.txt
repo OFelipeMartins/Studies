@@ -1,10 +1,10 @@
 IP's
-Master: 192.168.15.75
-slaves: 192.168.15.76/77/78
+Master: 192.168.15.75 // 15.100
+slaves: 192.168.15.76/77/78 // 15.101/15.102/15.103
 
 - vagrant up
 
-- ssh vagrant@ip
+- ssh vagrant@192.168.15.10X
 
 - Instalar Ansible
 sudo apt update
@@ -13,12 +13,33 @@ sudo apt install ansible
 - Criar arquivo de inventário e cadastrar servidores
 mkdir ansible
 vim inventario.txt
+    web ansible_host=192.168.15.76 ansible_user=vagrant ansible_password=vagrant
+    db  ansible_host=192.168.15.77 ansible_user=vagrant ansible_password=vagrant
+    fs  ansible_host=192.168.15.78 ansible_user=vagrant ansible_password=vagrant
 cat inventario.txt
+    imprime na tela o conteúdo de inventário.txt
 
 - validar conexões pelo ansible
-ansible -i inventario.txt all -m ping
+    # Quando passamos do jeito abaixo é chamado de AD HOC
+        ansible -i inventario.txt all -m ping
+        # Permissão negada
+        ansible -i inventario.txt all -k -m ping
+        # you must install the sshpass program
+        sudo apt install sshpass
+        ansible -i inventario.txt all -k -m ping
+        # Success
+        ansible -i inventario.txt 192.168.0.102 -k -m ping
+        # Success 
+        
+    # A outra forma é por meio de playbooks
+        Depois de registrar a senha no arquivo inventário.txt (O que pode ser feito de forma criptografada com o uso do VAULT) não será pedido mais a senha para executar os comandos e o parâmetro -k não será mais necessárior.
+    
+- Instalando o vim nos servidores  
+    ansible -i inventario.txt all -m apt "name=vim"
+    # Erro, permissão negada. Necessário permissão de root
+    ansible -i inventario.txt all -b -m apt -a "name=vim"
 
-- Instalar/gerenciar servidores remotos
+- Instalar/gerenciar servidores remotos com AH HOC
 ansible -i inventario web -b -m apt -a "name=nginx"
 ansible -i inventario all -b -m apt -a "name=net-tools"
 ansible -i inventario db -b -m apt -a "name=mysql-server"
