@@ -1,1 +1,1 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"C:/Users/FelipeMartins/VirtualBox VMs/Vagrant/centos8","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"C:/Users/FelipeMartins/Documents/MeusProjetos/Vagrant/centos8","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
