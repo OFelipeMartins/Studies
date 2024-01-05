@@ -1,2 +1,1 @@
-# InfraAsCode
- Learning infra as a code
+# Studies
